@@ -16,27 +16,33 @@ export default function InfoBox({info}){
     return(
         <div className="Infobox">        
         <div className="cardContainer">        
-            <Card sx={{ maxWidth: 345 }}>
+            <Card sx={{ maxWidth: 1000 }} style={{ width: 1000, height: 650, marginBottom: 15}} >
       <CardMedia
-        sx={{ height: 140 }}
-        image={info.humidity>80 ? RAIN_URL : info.temp>15 ? HOT_URL : COLD_URL }
+        sx={{ height: 400 }}
+        image={info.humidity>70 ? RAIN_URL : info.temp>15 ? HOT_URL : COLD_URL }
         title="green iguana"
       />
-      <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
+      <CardContent className="cardContent">
+        <Typography gutterBottom variant="h5" component="div" className="cont1">
           {info.city} 
           <span style={{marginLeft: "15px"}}>
-            {info.humidity>80 ? <ThunderstormIcon/> : info.temp>15 ? <WbSunnyIcon/> : <AcUnitIcon/> }
+            {info.humidity>70 ? <ThunderstormIcon/> : info.temp>15 ? <WbSunnyIcon/> : <AcUnitIcon/> }
+          <span style={{marginLeft: "15px"}}>{info.temp}&deg;C</span>
           </span>
-          
+          <div style={{marginTop: 15}}>
+          {info.weather}
+          </div>
         </Typography>
-        <Typography variant="body2" color="text.secondary" component={"span"}>
-          <hr />
-            <p>Temperature = {info.temp}&deg;C</p>
-            <p>Humidity = {info.humidity}</p>
+
+        <Typography variant="body2" color="text.secondary" component={"span"} className="cont2">
+          <div  style={{marginTop: "15px"}}>
+            <p>Humidity = {info.humidity}&#37;</p>
+            <p>Wind Speed = {info.windSpeed}m/s</p>
             <p>Min Temp = {info.tempMin}&deg;C</p>
             <p>Max Temp = {info.tempMax}&deg;C</p>
             <p>The weather is <b>{info.weather}</b> and temperature feels like {info.feelsLike} </p>
+          </div>
+            
         </Typography>
       </CardContent>
     </Card>

@@ -1,4 +1,8 @@
 .SearchBox{
-    text-align: center;
+    margin-top: 3vh;
+}
+#city{
+    background-color: white;
+    width: 20vw;
 }
 

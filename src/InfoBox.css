@@ -8,6 +8,20 @@
     margin: 30px;
 }
 p{
-    color: black;
+    /* color: black;
+    font-size: large;
+    font-weight: bold; */
 }
+.cardContent{
+    display: flex;
 
+}
+.cont1{
+    border-right: 2px solid black;
+    flex-grow: 1;
+   
+}
+.cont2{
+    flex-grow: 1;
+
+}

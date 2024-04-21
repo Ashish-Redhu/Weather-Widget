@@ -1,10 +1,13 @@
 import SearchBox from "./SearchBox";
 import InfoBox from "./InfoBox";
+import ForeCast from "./ForeCast";
 import {useState} from "react";
+import './WeatherApp.css';
 
 export default function WeatherApp(){
     const [weatherinfo, setWeatherInfo]=useState({
         city: "Wonderland", 
+        windSpeed: 15, 
         temp: 24.05, 
         tempMin: 20.53, 
         tempMax: 26.42,
