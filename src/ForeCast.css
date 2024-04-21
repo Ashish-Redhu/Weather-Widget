@@ -1,12 +1,17 @@
 /* To align all the cards in same row with scroll bar. */
-.forecast{
+.header{
+    color: white;
+    font-size: 2em;
+}
+.card{
     display: flex;
     flex-wrap: nowrap;     /* This keeps them in a single row, no matter what is their count. */
     overflow-x:auto;    /*This adds scroll bar */
+    margin-top: 15px;
 }
 
 /* To remove the scroll bar of cards */
-.forecast::-webkit-scrollbar {
+.card::-webkit-scrollbar {
     display: none;
 }
 .forecast-card{

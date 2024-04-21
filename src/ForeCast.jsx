@@ -16,43 +16,51 @@ export default function ForeCast({arr}){
 
     return(
         <div className="forecast">
+
+            <div className="header">
+                <h2>Next 5-days</h2>
+                <hr />
+            </div>
+
+            <div className="card">
      {arr.map((item, index) => (
                 <Card key={index} className={`forecast-card ${item.humidity > 70 ? 'rain' : item.temp > 15 ? 'hot' : 'cold'}`}>
 
-
                     {/* Card content with text */}
                     <CardContent>
-                        <Typography variant="h5" component="div">
+                        <Typography variant="h5" component="div" >
                             Date: {item.date} {/* Convert timestamp to date */}
                         </Typography>
                         <Typography variant="h5" component="div">
                             Time: {item.time} {/* Convert timestamp to time */}
                         </Typography>
-                        <Typography variant="body2" color="text.secondary">
+                        <hr />
+                        <Typography variant="h5" style={{color: item.humidity > 70 ? 'yellow' : item.temp > 15 ? 'black': 'red'}}>
                             Temperature: {item.temp}&deg;C
                         </Typography>
-                        <Typography variant="body2" color="text.secondary">
+                        <Typography variant="h5" style={{color: item.humidity > 70 ? 'yellow' : item.temp > 15 ? 'black': 'red'}}>
                             Wind Speed: {item.windSpeed}m/s
                         </Typography>
-                        <Typography variant="body2" color="text.secondary">
+                        <Typography variant="h5" style={{color: item.humidity > 70 ? 'yellow' : item.temp > 15 ? 'black': 'red'}}>
                             Min Temperature: {item.tempMin}&deg;C
                         </Typography>
-                        <Typography variant="body2" color="text.secondary">
+                        <Typography variant="h5" style={{color: item.humidity > 70 ? 'yellow' : item.temp > 15 ? 'black': 'red'}}>
                             Max Temperature: {item.tempMax}&deg;C
                         </Typography>
-                        <Typography variant="body2" color="text.secondary">
+                        <Typography  variant="h5" style={{color: item.humidity > 70 ? 'yellow' : item.temp > 15 ? 'black': 'red'}}>
                             Feels Like: {item.feelsLike}&deg;C
                         </Typography>
-                        <Typography variant="body2" color="text.secondary">
+                        <Typography  variant="h5" style={{color: item.humidity > 70 ? 'yellow' : item.temp > 15 ? 'black': 'red'}}>
                             Humidity: {item.humidity}%
                         </Typography>
-                        <Typography variant="body2" color="text.secondary">
+                        <Typography variant="h5" style={{color: item.humidity > 70 ? 'yellow' : item.temp > 15 ? 'black': 'red'}}>
                             Weather: {item.weather}
                         </Typography>
                     </CardContent>
 
                 </Card>
             ))}
+            </div>
            
         </div>
     )
