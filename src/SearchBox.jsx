@@ -17,16 +17,16 @@ export default function SearchBox({updateInfo}){
     
         // The things we recieved is in some other format, we have to convert them to json to understand.
         let jsoncurrResponse = await currResponse.json();
-        console.log(jsoncurrResponse);
+        // console.log(jsoncurrResponse);
         let jsonfutResponse = await futResponse.json();
         console.log(jsonfutResponse);
         
 
-        // We are making an object of only those details that we want to show. 
+        // We are making an object of only those details that we want to show.  :: Current-Weather.
         let currResult = {
             city: city,
             temp: (jsoncurrResponse.main.temp - 273.15).toFixed(2),
-            windSpeed: jsoncurrResponse.wind.speed,
+            windSpeed: jsoncurrResponse.wind.speed, 
             tempMin: (jsoncurrResponse.main.temp_min - 273.15).toFixed(2),
             tempMax: (jsoncurrResponse.main.temp_max - 273.15).toFixed(2), 
             feelsLike: (jsoncurrResponse.main.feels_like - 273.15).toFixed(2),
@@ -34,8 +34,35 @@ export default function SearchBox({updateInfo}){
             weather: jsoncurrResponse.weather[0].description
 // Remember the temperature returned is not in celcius, it is in kelvin. ".toFixed(2)" means we want only 2-digits after decimal.
         }
-        console.log(currResult);
-        return currResult;
+        // console.log(currResult);
+
+        // Future Weather: 5-days weather with 3-hrs gap.
+        // Array of objects.
+        let arr=[];
+        for(let i=0; i<40; i++)
+        {
+            let date = new Date(jsonfutResponse.list[i].dt_txt);
+            const options = {day: '2-digit', month: '2-digit', year: 'numeric'};
+            const formattedDate = date.toLocaleDateString('en-GB', options);
+            const formattedTime = date.toLocaleTimeString();
+           arr[i]={
+            date: formattedDate, 
+            time: formattedTime,
+            temp: (jsonfutResponse.list[i].main.temp - 273.15).toFixed(2),
+            windSpeed: jsonfutResponse.list[i].wind.speed, 
+            tempMin: (jsonfutResponse.list[i].main.temp_min - 273.15).toFixed(2),
+            tempMax: (jsonfutResponse.list[i].main.temp_max - 273.15).toFixed(2), 
+            feelsLike: (jsonfutResponse.list[i].main.feels_like - 273.15).toFixed(2),
+            humidity: jsonfutResponse.list[i].main.humidity,
+            weather: jsonfutResponse.list[i].weather[0].description
+
+           }
+        }
+        // console.log(arr);
+        
+        let newobj={currResult: currResult, arr:arr};
+        console.log(newobj);
+        return newobj;
       } 
       catch(err)
       {throw err;}
@@ -79,3 +106,4 @@ export default function SearchBox({updateInfo}){
     )
 }
 
+// This is SearchBox.jsx

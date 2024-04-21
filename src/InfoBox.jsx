@@ -19,14 +19,14 @@ export default function InfoBox({info}){
             <Card sx={{ maxWidth: 1000 }} style={{ width: 1000, height: 650, marginBottom: 15}} >
       <CardMedia
         sx={{ height: 400 }}
-        image={info.humidity>70 ? RAIN_URL : info.temp>15 ? HOT_URL : COLD_URL }
+        image={info.humidity>60 ? RAIN_URL : info.temp>15 ? HOT_URL : COLD_URL }
         title="green iguana"
       />
       <CardContent className="cardContent">
         <Typography gutterBottom variant="h5" component="div" className="cont1">
           {info.city} 
           <span style={{marginLeft: "15px"}}>
-            {info.humidity>70 ? <ThunderstormIcon/> : info.temp>15 ? <WbSunnyIcon/> : <AcUnitIcon/> }
+            {info.humidity>60 ? <ThunderstormIcon/> : info.temp>15 ? <WbSunnyIcon/> : <AcUnitIcon/> }
           <span style={{marginLeft: "15px"}}>{info.temp}&deg;C</span>
           </span>
           <div style={{marginTop: 15}}>
@@ -50,3 +50,5 @@ export default function InfoBox({info}){
         </div>
     )
 }
+
+// This is InfoBox.jsx
