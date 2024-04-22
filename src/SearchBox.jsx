@@ -44,7 +44,8 @@ export default function SearchBox({updateInfo}){
             let date = new Date(jsonfutResponse.list[i].dt_txt);
             const options = {day: '2-digit', month: '2-digit', year: 'numeric'};
             const formattedDate = date.toLocaleDateString('en-GB', options);
-            const formattedTime = date.toLocaleTimeString();
+            const options2 = { hour: '2-digit', minute: '2-digit' };
+            const formattedTime = date.toLocaleTimeString([], options2);
            arr[i]={
             date: formattedDate, 
             time: formattedTime,

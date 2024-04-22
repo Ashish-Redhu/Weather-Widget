@@ -17,10 +17,10 @@
 }
 
 .custom-card {
-    background-color: #fff;
+    background-color: white;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 20px;
+    /* padding: 20px; */
     /* flex: 1; */
     position: relative;
     z-index: 1;
@@ -29,13 +29,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    /* width: 400px; */
-    width: 25em;
-    flex: 0 0 auto;
+    /* width: 400px; */ 
+    flex: 0 0 auto;  
 }
 
 
-.custom-card::before {
+.custom-card.cold ::before {
     content: "";
     position: absolute;
     top: 0;
@@ -47,10 +46,98 @@
     pointer-events: none;
     background: url("https://images.unsplash.com/photo-1612208695882-02f2322b7fee?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y29sZCUyMHdlYXRoZXJ8ZW58MHx8MHx8fDA%3D") no-repeat center center/cover;
     z-index: -1;
-    opacity: 0.5;
+    opacity: 0.2;
 }
 
 /* .card-content{
     width: 300px;
     height: 200px;
 } */
+
+
+.custom-card.hot ::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    /* background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5)); */
+    pointer-events: none;
+    background: url("https://images.unsplash.com/photo-1561473880-3b8b12de0a71?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGhvdCUyMHdlYXRoZXJ8ZW58MHx8MHx8fDA%3D") no-repeat center center/cover;
+    z-index: -1;
+    opacity: 0.2;
+}
+
+
+/* Way to add background image. */
+.custom-card.rain ::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    /* background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5)); */
+    pointer-events: none;
+    background: url("https://images.unsplash.com/photo-1583054994298-cc68ddaca862?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHJhaW55JTIwd2VhdGhlcnxlbnwwfHwwfHx8MA%3D%3D") no-repeat center center/cover;
+    z-index: -1;
+    opacity: 0.2;
+}
+.custom-card.rain{
+    background-color: black;
+    color: white;
+}
+
+
+/* Adjusting the placing of each content in the custom-card */
+/* Grid */
+.custom-card {
+    width: 250px;
+    height: 250px;   
+}
+.card-content{
+    font-weight: bold;
+    font-size: larger;
+    display: grid;
+    grid-template-rows: 50px 50px 150px;
+    grid-template-columns: 125px 125px;
+    width: 250px;
+    height: 250px;
+
+}
+
+/* Adjusting the inner 5 grid-elements/boxes. */
+.dandT{
+    background-color: black;
+    color:white;
+    margin-bottom: 0;
+}
+
+.weatherlogo{
+   justify-self: end;
+   padding-right: 10px;
+}
+.templogo{
+   font-size: 35px;
+   color: orange;
+}
+.hot > .card-content .templogo{
+    color: white;
+}
+.rainp{
+    justify-self: end;
+    padding-right: 10px;
+    font-size: 30px;
+}
+.content{
+    border-top: 2px solid white;
+    grid-column: span 2;
+    align-self: center;
+}
+
+
+
+
