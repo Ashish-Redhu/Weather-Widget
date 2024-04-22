@@ -2,8 +2,10 @@
     /* Add styles for forecast container */
 }
 
-.header {
-    /* Add styles for header */
+.header h2{
+    color: white;
+    font-size: 3em;
+
 }
 
 .custom-card-container {
@@ -136,6 +138,23 @@
     border-top: 2px solid white;
     grid-column: span 2;
     align-self: center;
+    display: grid;
+    grid-template-rows: 50px 60px;
+    grid-template-columns: 125px 125px;
+}
+.content div:nth-child(1){
+    align-self: center;
+    border-right: 2px solid white;
+}
+.content div:nth-child(3){
+    align-self: flex-end;
+    border-top: 2px solid white;
+    border-right: 2px solid white;
+}
+.content div:nth-child(4){
+    align-self:flex-end;
+    margin-top: 10px;
+    border-top: 2px solid white;
 }
 
 

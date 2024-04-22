@@ -7,6 +7,11 @@
     text-align: center;
     margin: 30px;
 }
+.cardContainer h2{
+    font-weight: bolder;
+    font-size: 2em;
+    margin-right: 10px;
+}
 p{
     /* color: black;
     font-size: large;

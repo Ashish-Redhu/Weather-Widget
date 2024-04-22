@@ -34,10 +34,11 @@ const ForeCast= ({ arr }) => {
                             </div>
                             <div className="content">
                                 <div>Wind-Speed: {item.windSpeed}m/s</div>
+                                <div>Weather: {item.weather}</div>
                                 <div>Min-Temp: {item.tempMin}&deg;C</div>
                                 <div>Max-Temp: {item.tempMax}&deg;C</div>
-                                <div>Feels Like: {item.feelsLike}&deg;C</div>
-                                <div>Weather: {item.weather}</div>
+                                {/* <div>Feels Like: {item.feelsLike}&deg;C</div> */}
+                                
                             </div>
                         </div>
 
