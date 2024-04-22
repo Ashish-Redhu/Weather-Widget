@@ -129,6 +129,12 @@
 .hot > .card-content .templogo{
     color: white;
 }
+.cold > .card-content .content div{
+    color: black;
+}
+.hot > .card-content .content div{
+    color: black;
+}
 .rainp{
     justify-self: end;
     padding-right: 10px;
