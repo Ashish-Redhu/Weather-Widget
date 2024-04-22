@@ -1,67 +1,38 @@
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
-import ThunderstormIcon from '@mui/icons-material/Thunderstorm';
-import WbSunnyIcon from '@mui/icons-material/WbSunny';
-import AcUnitIcon from '@mui/icons-material/AcUnit';
-import "./ForeCast.css";
+import React from 'react';
+import './ForeCast.css';
 
-
-export default function ForeCast({arr}){
-    const HOT_URL="https://images.unsplash.com/photo-1561473880-3b8b12de0a71?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGhvdCUyMHdlYXRoZXJ8ZW58MHx8MHx8fDA%3D";
-    const COLD_URL="https://images.unsplash.com/photo-1612208695882-02f2322b7fee?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y29sZCUyMHdlYXRoZXJ8ZW58MHx8MHx8fDA%3D";
-    const RAIN_URL="https://images.unsplash.com/photo-1583054994298-cc68ddaca862?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHJhaW55JTIwd2VhdGhlcnxlbnwwfHwwfHx8MA%3D%3D";
-
-    return(
+const ForeCast= ({ arr }) => {
+    return (
         <div className="forecast">
-
             <div className="header">
                 <h2>Next 5-days</h2>
                 <hr />
             </div>
+            <div className="custom-card-container">
 
-            <div className="card">
-     {arr.map((item, index) => (
-                <Card key={index} className={`forecast-card ${item.humidity > 70 ? 'rain' : item.temp > 15 ? 'hot' : 'cold'}`}>
+                {arr.map((item, index) => (
+                    <div className="custom-card" key={index}>
 
-                    {/* Card content with text */}
-                    <CardContent>
-                        <Typography variant="h5" component="div" >
-                            Date: {item.date} {/* Convert timestamp to date */}
-                        </Typography>
-                        <Typography variant="h5" component="div">
-                            Time: {item.time} {/* Convert timestamp to time */}
-                        </Typography>
-                        <hr />
-                        <Typography variant="h5" style={{color: item.humidity > 70 ? 'yellow' : item.temp > 15 ? 'black': 'red'}}>
-                            Temperature: {item.temp}&deg;C
-                        </Typography>
-                        <Typography variant="h5" style={{color: item.humidity > 70 ? 'yellow' : item.temp > 15 ? 'black': 'red'}}>
-                            Wind Speed: {item.windSpeed}m/s
-                        </Typography>
-                        <Typography variant="h5" style={{color: item.humidity > 70 ? 'yellow' : item.temp > 15 ? 'black': 'red'}}>
-                            Min Temperature: {item.tempMin}&deg;C
-                        </Typography>
-                        <Typography variant="h5" style={{color: item.humidity > 70 ? 'yellow' : item.temp > 15 ? 'black': 'red'}}>
-                            Max Temperature: {item.tempMax}&deg;C
-                        </Typography>
-                        <Typography  variant="h5" style={{color: item.humidity > 70 ? 'yellow' : item.temp > 15 ? 'black': 'red'}}>
-                            Feels Like: {item.feelsLike}&deg;C
-                        </Typography>
-                        <Typography  variant="h5" style={{color: item.humidity > 70 ? 'yellow' : item.temp > 15 ? 'black': 'red'}}>
-                            Humidity: {item.humidity}%
-                        </Typography>
-                        <Typography variant="h5" style={{color: item.humidity > 70 ? 'yellow' : item.temp > 15 ? 'black': 'red'}}>
-                            Weather: {item.weather}
-                        </Typography>
-                    </CardContent>
+                        <div className="card-content">
+                            <div>Date: {item.date}</div>
+                            <div>Time: {item.time}</div>
+                            <hr />
+                            <div>Temperature: {item.temp}&deg;C</div>
+                            <div>Wind Speed: {item.windSpeed}m/s</div>
+                            <div>Min Temperature: {item.tempMin}&deg;C</div>
+                            <div>Max Temperature: {item.tempMax}&deg;C</div>
+                            <div>Feels Like: {item.feelsLike}&deg;C</div>
+                            <div>Humidity: {item.humidity}%</div>
+                            <div>Weather: {item.weather}</div>
+                        </div>
 
-                </Card>
-            ))}
+                    </div>
+                ))}
+
             </div>
-           
         </div>
-    )
-}
+    );
+};
+
+export default ForeCast;
+
