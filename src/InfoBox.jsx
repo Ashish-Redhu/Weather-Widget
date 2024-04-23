@@ -6,6 +6,7 @@ import Typography from '@mui/material/Typography';
 import ThunderstormIcon from '@mui/icons-material/Thunderstorm';
 import WbSunnyIcon from '@mui/icons-material/WbSunny';
 import AcUnitIcon from '@mui/icons-material/AcUnit';
+import rainLogo from './assets/rainlogo.png';
 import "./InfoBox.css";
 
 export default function InfoBox({info}){
@@ -17,12 +18,20 @@ export default function InfoBox({info}){
         <div className="Infobox">      
         <div className="cardContainer">     
         <h2>Today's Weather -- </h2>     
-            <Card sx={{ maxWidth: 1000 }} style={{ width: 1000, height: 650, marginBottom: 15}} >
-      <CardMedia
-        sx={{ height: 400 }}
-        image={info.humidity>60 ? RAIN_URL : info.temp>15 ? HOT_URL : COLD_URL }
-        title="green iguana"
-      />
+        <Card sx={{ maxWidth: 1000 }} style={{ width: 1000, height: 650, marginBottom: 15}} >
+       
+        <CardMedia
+            sx={{ height: 400, position: 'relative' }}
+            image={info.humidity>60 ? RAIN_URL : info.temp>15 ? HOT_URL : COLD_URL }
+            title="green iguana"
+        >
+        {/* Add logo/image and text */}
+          <img src={rainLogo} alt="logo" style={{ position: 'absolute', top: 20, left: 20, width: 50, height: 50 }} />
+          <Typography variant="h4" component="div" style={{ position: 'absolute', top: 80, left: 20, color: 'black' }}>
+          {info.humidity}&#37;
+          </Typography>
+      </CardMedia>
+
       <CardContent className="cardContent">
         <Typography gutterBottom variant="h5" component="div" className="cont1">
           {info.city} 
