@@ -30,3 +30,25 @@ p{
     flex-grow: 1;
 
 }
+
+
+/* Adding Responsiveness */
+@media (max-width: 550px){
+    .cardContent{
+       flex-direction: column;
+    }
+    .cont1{
+        border-right: none;
+        border-bottom: 2px solid black;
+       
+    }
+}
+
+@media (max-width: 450px){
+    .cardContainer h2{
+        display: none;
+    }
+}
+
+
+

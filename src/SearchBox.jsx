@@ -92,7 +92,7 @@ export default function SearchBox({updateInfo}){
             <form onSubmit={handleSubmit}>
             <TextField 
             id="city"
-            label="Search For your city here" 
+            label="Enter City here " 
             variant="filled" 
             required 
             value={city}
